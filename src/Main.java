@@ -56,7 +56,7 @@ public class Main {
     public static void printOutList(ArrayList<Vehicle> arrayList){
         if(arrayList.isEmpty()){
             System.out.println("This list is empty");
-            System.exit(0);
+
         }
         arrayList.forEach( vehicle -> {
                 System.out.println(vehicle.getParkering()+" - " + vehicle.getName() +
