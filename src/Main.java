@@ -53,7 +53,7 @@ public class Main {
     }
 
 
-    public static void printOutList(ArrayList<Vehicle> arrayList){
+    protected static void printOutList(ArrayList<Vehicle> arrayList){
         if(arrayList.isEmpty()){
             System.out.println("This list is empty");
 
@@ -68,7 +68,7 @@ public class Main {
 
     }
 
-    public static HashSet<Kaj> removeKajVanEl (ArrayList<Vehicle> arrayList, HashSet<Kaj> kajVan){
+    private static HashSet<Kaj> removeKajVanEl (ArrayList<Vehicle> arrayList, HashSet<Kaj> kajVan){
         for (Vehicle vehicle : arrayList) {
             Kaj k = new Kaj(vehicle.getParkering());
             if (kajVan.contains(k)) {
@@ -78,7 +78,7 @@ public class Main {
         return kajVan;
     }
 
-    public static HashSet<Kaj> removeKajSmallTruck1El (ArrayList<Vehicle> arrayList, HashSet<Kaj> kajSmallTruck1){
+    private static HashSet<Kaj> removeKajSmallTruck1El (ArrayList<Vehicle> arrayList, HashSet<Kaj> kajSmallTruck1){
 
         for (Vehicle vehicle : arrayList) {
             Kaj k = new Kaj(vehicle.getParkering());
@@ -89,7 +89,7 @@ public class Main {
         return kajSmallTruck1;
     }
 
-    public static HashSet<Kaj> removeKajSmallTruck2El (ArrayList<Vehicle> arrayList, HashSet<Kaj> kajSmallTruck2){
+    private static HashSet<Kaj> removeKajSmallTruck2El (ArrayList<Vehicle> arrayList, HashSet<Kaj> kajSmallTruck2){
         for (Vehicle vehicle : arrayList) {
             Kaj k = new Kaj(vehicle.getParkering());
             if (kajSmallTruck2.contains(k)) {
@@ -99,7 +99,7 @@ public class Main {
         return kajSmallTruck2;
     }
 
-    public static HashSet<Kaj> removeKajHeavyTruck1El (ArrayList<Vehicle> arrayList, HashSet<Kaj> kajHeavyTruck1){
+    private static HashSet<Kaj> removeKajHeavyTruck1El (ArrayList<Vehicle> arrayList, HashSet<Kaj> kajHeavyTruck1){
         for (Vehicle vehicle : arrayList) {
             Kaj k = new Kaj(vehicle.getParkering());
             if (kajHeavyTruck1.contains(k)) {
@@ -109,7 +109,7 @@ public class Main {
         return kajHeavyTruck1;
     }
 
-    public static HashSet<Kaj> removeKajHeavyTruck2El (ArrayList<Vehicle> arrayList, HashSet<Kaj> kajHeavyTruck2){
+    private static HashSet<Kaj> removeKajHeavyTruck2El (ArrayList<Vehicle> arrayList, HashSet<Kaj> kajHeavyTruck2){
         for (Vehicle vehicle : arrayList) {
             Kaj k = new Kaj(vehicle.getParkering());
             if (kajHeavyTruck2.contains(k)) {
@@ -119,7 +119,7 @@ public class Main {
         return kajHeavyTruck2;
     }
 
-    public static void Type(ArrayList<Vehicle> arrayList,
+    protected static void Type(ArrayList<Vehicle> arrayList,
                             HashSet<Kaj> kajVan, HashSet<Kaj> kajSmallTruck1,
                             HashSet<Kaj> kajSmallTruck2, HashSet<Kaj> kajHeavyTruck1,
                             HashSet<Kaj> kajHeavyTruck2){
@@ -173,7 +173,7 @@ public class Main {
         }
     }
 
-    public static ArrayList<Vehicle> inputVan(HashSet<Kaj> kajVan, ArrayList<Vehicle> arrayList){
+    private static ArrayList<Vehicle> inputVan(HashSet<Kaj> kajVan, ArrayList<Vehicle> arrayList){
 
         Vehicle v = new Vehicle();
         int w = weight();
@@ -187,7 +187,7 @@ public class Main {
         return arrayList;
     }
 
-    public static ArrayList<Vehicle> inputSmallTruck(ArrayList<Vehicle> arrayList,HashSet<Kaj> kajSmallTruck1, HashSet<Kaj> kajSmallTruck2 ){
+    private static ArrayList<Vehicle> inputSmallTruck(ArrayList<Vehicle> arrayList,HashSet<Kaj> kajSmallTruck1, HashSet<Kaj> kajSmallTruck2 ){
         Vehicle v = new Vehicle();
         int w = weight();
         v.setName("Lätt lastbil");
@@ -215,7 +215,7 @@ public class Main {
 
         return arrayList;
     }
-    public static ArrayList<Vehicle> inputHeavyTruck(ArrayList<Vehicle> arrayList,HashSet<Kaj> kajHeavyTruck1, HashSet<Kaj> kajHeavyTruck2 ){
+    private static ArrayList<Vehicle> inputHeavyTruck(ArrayList<Vehicle> arrayList,HashSet<Kaj> kajHeavyTruck1, HashSet<Kaj> kajHeavyTruck2 ){
         Vehicle v = new Vehicle();
         int w = weight();
         v.setName("Tung lastbil");
@@ -241,7 +241,7 @@ public class Main {
         return arrayList;
     }
 
-    public static int weight(){
+    private static int weight(){
         System.out.println("Vikt på");
         Scanner sc = new Scanner(System.in);
         String choice3 = sc.next();
