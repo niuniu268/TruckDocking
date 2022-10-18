@@ -1,0 +1,226 @@
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.function.Consumer;
+
+public class Main {
+    public static void main(String[] args) {
+
+        ArrayList<Vehicle> arrayList = new ArrayList<>();
+
+        Kaj a = new Kaj("A");
+        Kaj b = new Kaj("B");
+        Kaj c = new Kaj("C");
+        Kaj d = new Kaj("D");
+        Kaj e = new Kaj("E");
+
+        HashSet<Kaj> kajVan = new HashSet<>();
+        HashSet<Kaj> kajSmallTruck1 = new HashSet<>();
+        HashSet<Kaj> kajSmallTruck2 = new HashSet<>();
+        HashSet<Kaj> kajHeavyTruck1 = new HashSet<>();
+        HashSet<Kaj> kajHeavyTruck2 = new HashSet<>();
+        kajVan.add(a);
+        kajVan.add(b);
+        kajSmallTruck1.add(a);
+        kajSmallTruck1.add(c);
+        kajSmallTruck1.add(d);
+        kajSmallTruck2.add(d);
+        kajSmallTruck2.add(c);
+        kajHeavyTruck1.add(e);
+        kajHeavyTruck1.add(d);
+        kajHeavyTruck2.add(e);
+        Scanner sc = new Scanner(System.in);
+
+        while (true){
+            System.out.println("– Avlastningsstationen dumpa mera – ");
+            System.out.println("1. Se parkerade lastbilar ");
+            System.out.println("2. Registrera ny avlastande lastbil");
+            System.out.println("3. Avsluta");
+            System.out.println("Välj från listan:");
+            String choice = sc.next();
+
+            switch (choice){
+                case("1") -> {printOutList(arrayList);
+                    }
+                case("2") -> {Type(arrayList,kajVan,kajSmallTruck1,kajSmallTruck2,kajHeavyTruck1,kajHeavyTruck2);
+
+                }
+                case("3") -> System.exit(0);
+
+            }
+        }
+    }
+
+
+    public static void printOutList(ArrayList<Vehicle> arrayList){
+        if(arrayList.isEmpty()){
+            System.out.println("This list is empty");
+            System.exit(0);
+        }
+        arrayList.forEach( vehicle -> {
+                System.out.println(vehicle.getParkering()+" - " + vehicle.getName() +
+                        " [" + vehicle.getSelfweight() + "kg]");
+        }
+        );
+
+        System.out.println("-----------------------------");
+
+    }
+
+    public static HashSet<Kaj> removeKajVanEl (ArrayList<Vehicle> arrayList, HashSet<Kaj> kajVan){
+        for (Vehicle vehicle : arrayList) {
+            if (kajVan.contains(vehicle.getParkering())) {
+                kajVan.remove(vehicle.getParkering());
+            }
+        }
+        return kajVan;
+    }
+
+    public static HashSet<Kaj> removeKajSmallTruck1El (ArrayList<Vehicle> arrayList, HashSet<Kaj> kajSmallTruck1){
+        for (Vehicle vehicle : arrayList) {
+            if (kajSmallTruck1.contains(vehicle.getParkering())) {
+                kajSmallTruck1.remove(vehicle.getParkering());
+            }
+        }
+        return kajSmallTruck1;
+    }
+
+    public static HashSet<Kaj> removeKajSmallTruck2El (ArrayList<Vehicle> arrayList, HashSet<Kaj> kajSmallTruck2){
+        for (Vehicle vehicle : arrayList) {
+            if (kajSmallTruck2.contains(vehicle.getParkering())) {
+                kajSmallTruck2.remove(vehicle.getParkering());
+            }
+        }
+        return kajSmallTruck2;
+    }
+
+    public static HashSet<Kaj> removeKajHeavyTruck1El (ArrayList<Vehicle> arrayList, HashSet<Kaj> kajHeavyTruck1){
+        for (Vehicle vehicle : arrayList) {
+            if (kajHeavyTruck1.contains(vehicle.getParkering())) {
+                kajHeavyTruck1.remove(vehicle.getParkering());
+            }
+        }
+        return kajHeavyTruck1;
+    }
+
+    public static HashSet<Kaj> removeKajHeavyTruck2El (ArrayList<Vehicle> arrayList, HashSet<Kaj> kajHeavyTruck2){
+        for (Vehicle vehicle : arrayList) {
+            if (kajHeavyTruck2.contains(vehicle.getParkering())) {
+                kajHeavyTruck2.remove(vehicle.getParkering());
+            }
+        }
+        return kajHeavyTruck2;
+    }
+
+    public static void Type(ArrayList<Vehicle> arrayList,
+                            HashSet<Kaj> kajVan, HashSet<Kaj> kajSmallTruck1,
+                            HashSet<Kaj> kajSmallTruck2, HashSet<Kaj> kajHeavyTruck1,
+                            HashSet<Kaj> kajHeavyTruck2){
+        System.out.println("Typ av lastbil:");
+        System.out.println("1. Skåpbil");
+        System.out.println("2. Lätt lastbil");
+        System.out.println("3. Tung lastbil");
+        System.out.println("Välj från listan: ");
+        Scanner sc = new Scanner(System.in);
+        String choice2 = sc.next();
+        switch (choice2){
+            case "1" -> {if(kajVan.isEmpty()){
+                System.out.println("Tyvärr är det fullt, hänvisa förare till stationen dumpa mest!");
+                break;
+                }
+
+                inputVan(kajVan,arrayList);
+                removeKajVanEl(arrayList,kajVan);
+                removeKajSmallTruck1El(arrayList,kajSmallTruck1);
+                removeKajSmallTruck2El(arrayList,kajSmallTruck2);
+                removeKajHeavyTruck1El(arrayList,kajHeavyTruck1);
+                removeKajHeavyTruck2El(arrayList,kajHeavyTruck2);
+
+            }
+            case "2" -> {if(kajSmallTruck1.isEmpty()&&kajSmallTruck2.isEmpty()){
+                System.out.println("Tyvärr är det fullt, hänvisa förare till stationen dumpa mest!");
+                break;
+                }
+
+                inputSmallTruck(arrayList,kajSmallTruck1,kajSmallTruck2);
+                removeKajVanEl(arrayList,kajVan);
+                removeKajSmallTruck1El(arrayList,kajSmallTruck1);
+                removeKajSmallTruck2El(arrayList,kajSmallTruck2);
+                removeKajHeavyTruck1El(arrayList,kajHeavyTruck1);
+                removeKajHeavyTruck2El(arrayList,kajHeavyTruck2);
+
+
+            }
+            case "3" -> {if(kajHeavyTruck1.isEmpty()&&kajHeavyTruck1.isEmpty()){
+                System.out.println("Tyvärr är det fullt, hänvisa förare till stationen dumpa mest!");
+                break;
+            }
+                inputHeavyTruck(arrayList,kajHeavyTruck1,kajHeavyTruck2);
+                removeKajVanEl(arrayList,kajVan);
+                removeKajSmallTruck1El(arrayList,kajSmallTruck1);
+                removeKajSmallTruck2El(arrayList,kajSmallTruck2);
+                removeKajHeavyTruck1El(arrayList,kajHeavyTruck1);
+                removeKajHeavyTruck2El(arrayList,kajHeavyTruck2);
+
+            }
+        }
+    }
+
+    public static ArrayList<Vehicle> inputVan(HashSet<Kaj> kajVan, ArrayList<Vehicle> arrayList){
+
+        Vehicle v = new Vehicle();
+        int w = weight();
+        v.setName("Skåpbil");
+        v.setSelfweight(w);
+        v.setParkering( kajVan.stream().findFirst().get().getName());
+
+        arrayList.add(v);
+        int index = arrayList.size() - 1;
+        System.out.println(arrayList.get(index).getParkering() + " - " + arrayList.get(index).getName() + arrayList.get(index).getSelfweight() + " kg");
+        return arrayList;
+    }
+
+    public static ArrayList<Vehicle> inputSmallTruck(ArrayList<Vehicle> arrayList,HashSet<Kaj> kajSmallTruck1, HashSet<Kaj> kajSmallTruck2 ){
+        Vehicle v = new Vehicle();
+        int w = weight();
+        v.setName("Lätt lastbil");
+        v.setSelfweight(w);
+        if(w > 5000){
+            v.setParkering(kajSmallTruck2.stream().findFirst().get().getName());
+        }else {
+            v.setParkering(kajSmallTruck1.stream().findFirst().get().getName());
+        }
+
+        arrayList.add(v);
+        int index = arrayList.size() - 1;
+        System.out.println(arrayList.get(index).getParkering() + " - " + arrayList.get(index).getName() + arrayList.get(index).getSelfweight() + " kg");
+
+        return arrayList;
+    }
+    public static ArrayList<Vehicle> inputHeavyTruck(ArrayList<Vehicle> arrayList,HashSet<Kaj> kajHeavyTruck1, HashSet<Kaj> kajHeavyTruck2 ){
+        Vehicle v = new Vehicle();
+        int w = weight();
+        v.setName("Tung lastbil");
+        v.setSelfweight(w);
+        if(w > 9000){
+            v.setParkering(kajHeavyTruck2.stream().findFirst().get().getName());
+        }else {
+            v.setParkering(kajHeavyTruck1.stream().findFirst().get().getName());
+        }
+
+        arrayList.add(v);
+        int index = arrayList.size() - 1;
+        System.out.println(arrayList.get(index).getParkering() + " - " + arrayList.get(index).getName() + arrayList.get(index).getSelfweight() + " kg");
+
+        return arrayList;
+    }
+
+    public static int weight(){
+        System.out.println("Vikt på");
+        Scanner sc = new Scanner(System.in);
+        String choice3 = sc.next();
+        int weight = Integer.parseInt(choice3);
+        return weight;
+    }
+}
