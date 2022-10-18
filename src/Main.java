@@ -144,7 +144,7 @@ public class Main {
                 removeKajHeavyTruck2El(arrayList,kajHeavyTruck2);
 
             }
-            case "2" -> {if(kajSmallTruck1.isEmpty()&&kajSmallTruck2.isEmpty()){
+            case "2" -> {if(kajSmallTruck2.isEmpty()&&kajSmallTruck1.isEmpty()){
                 System.out.println("Tyvärr är det fullt, hänvisa förare till stationen dumpa mest!");
                 break;
                 }
@@ -158,7 +158,7 @@ public class Main {
 
 
             }
-            case "3" -> {if(kajHeavyTruck1.isEmpty()&&kajHeavyTruck1.isEmpty()){
+            case "3" -> {if(kajHeavyTruck2.isEmpty()&&kajHeavyTruck1.isEmpty()){
                 System.out.println("Tyvärr är det fullt, hänvisa förare till stationen dumpa mest!");
                 break;
             }
@@ -193,14 +193,25 @@ public class Main {
         v.setName("Lätt lastbil");
         v.setSelfweight(w);
         if(w > 5000){
-            v.setParkering(kajSmallTruck2.stream().findFirst().get().getName());
+            if(kajSmallTruck2.isEmpty()){
+                System.out.println("weight should be less than 5000 kg");
+
+            }else {
+                v.setParkering(kajSmallTruck2.stream().findFirst().get().getName());
+                arrayList.add(v);
+                int index = arrayList.size() - 1;
+                System.out.println(arrayList.get(index).getParkering() + " - " + arrayList.get(index).getName() + arrayList.get(index).getSelfweight() + " kg");
+
+            }
+
         }else {
             v.setParkering(kajSmallTruck1.stream().findFirst().get().getName());
+            arrayList.add(v);
+            int index = arrayList.size() - 1;
+            System.out.println(arrayList.get(index).getParkering() + " - " + arrayList.get(index).getName() + " " + arrayList.get(index).getSelfweight() + " kg");
+
         }
 
-        arrayList.add(v);
-        int index = arrayList.size() - 1;
-        System.out.println(arrayList.get(index).getParkering() + " - " + arrayList.get(index).getName() + arrayList.get(index).getSelfweight() + " kg");
 
         return arrayList;
     }
@@ -210,14 +221,22 @@ public class Main {
         v.setName("Tung lastbil");
         v.setSelfweight(w);
         if(w > 9000){
-            v.setParkering(kajHeavyTruck2.stream().findFirst().get().getName());
+            if(kajHeavyTruck2.isEmpty()){
+                System.out.println("weight should be less than 9000 kg");
+
+            }else{
+                v.setParkering(kajHeavyTruck2.stream().findFirst().get().getName());
+                arrayList.add(v);
+                int index = arrayList.size() - 1;
+                System.out.println(arrayList.get(index).getParkering() + " - " + arrayList.get(index).getName() + " " + arrayList.get(index).getSelfweight() + " kg");
+            }
         }else {
             v.setParkering(kajHeavyTruck1.stream().findFirst().get().getName());
+            arrayList.add(v);
+            int index = arrayList.size() - 1;
+            System.out.println(arrayList.get(index).getParkering() + " - " + arrayList.get(index).getName() + " " + arrayList.get(index).getSelfweight() + " kg");
         }
 
-        arrayList.add(v);
-        int index = arrayList.size() - 1;
-        System.out.println(arrayList.get(index).getParkering() + " - " + arrayList.get(index).getName() + arrayList.get(index).getSelfweight() + " kg");
 
         return arrayList;
     }
