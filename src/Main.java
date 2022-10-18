@@ -70,17 +70,20 @@ public class Main {
 
     public static HashSet<Kaj> removeKajVanEl (ArrayList<Vehicle> arrayList, HashSet<Kaj> kajVan){
         for (Vehicle vehicle : arrayList) {
-            if (kajVan.contains(vehicle.getParkering())) {
-                kajVan.remove(vehicle.getParkering());
+            Kaj k = new Kaj(vehicle.getParkering());
+            if (kajVan.contains(k)) {
+                kajVan.remove(k);
             }
         }
         return kajVan;
     }
 
     public static HashSet<Kaj> removeKajSmallTruck1El (ArrayList<Vehicle> arrayList, HashSet<Kaj> kajSmallTruck1){
+
         for (Vehicle vehicle : arrayList) {
-            if (kajSmallTruck1.contains(vehicle.getParkering())) {
-                kajSmallTruck1.remove(vehicle.getParkering());
+            Kaj k = new Kaj(vehicle.getParkering());
+            if (kajSmallTruck1.contains(k)) {
+                kajSmallTruck1.remove(k);
             }
         }
         return kajSmallTruck1;
@@ -88,8 +91,9 @@ public class Main {
 
     public static HashSet<Kaj> removeKajSmallTruck2El (ArrayList<Vehicle> arrayList, HashSet<Kaj> kajSmallTruck2){
         for (Vehicle vehicle : arrayList) {
-            if (kajSmallTruck2.contains(vehicle.getParkering())) {
-                kajSmallTruck2.remove(vehicle.getParkering());
+            Kaj k = new Kaj(vehicle.getParkering());
+            if (kajSmallTruck2.contains(k)) {
+                kajSmallTruck2.remove(k);
             }
         }
         return kajSmallTruck2;
@@ -97,8 +101,9 @@ public class Main {
 
     public static HashSet<Kaj> removeKajHeavyTruck1El (ArrayList<Vehicle> arrayList, HashSet<Kaj> kajHeavyTruck1){
         for (Vehicle vehicle : arrayList) {
-            if (kajHeavyTruck1.contains(vehicle.getParkering())) {
-                kajHeavyTruck1.remove(vehicle.getParkering());
+            Kaj k = new Kaj(vehicle.getParkering());
+            if (kajHeavyTruck1.contains(k)) {
+                kajHeavyTruck1.remove(k);
             }
         }
         return kajHeavyTruck1;
@@ -106,8 +111,9 @@ public class Main {
 
     public static HashSet<Kaj> removeKajHeavyTruck2El (ArrayList<Vehicle> arrayList, HashSet<Kaj> kajHeavyTruck2){
         for (Vehicle vehicle : arrayList) {
-            if (kajHeavyTruck2.contains(vehicle.getParkering())) {
-                kajHeavyTruck2.remove(vehicle.getParkering());
+            Kaj k = new Kaj(vehicle.getParkering());
+            if (kajHeavyTruck2.contains(k)) {
+                kajHeavyTruck2.remove(k);
             }
         }
         return kajHeavyTruck2;
