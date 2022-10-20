@@ -22,3 +22,8 @@ Tjänster
 När programmet startas ska användaren kunna välja att
 se dockade lastbilars kajplats, lastbilstyp samt vikt
 registrera en ny lastbil vid stationen
+
+## Result
+ - Initially, check the list:
+
+![list](https://github.com/niuniu268/TruckDocking/blob/master/images/Screenshot%202022-10-20%20at%201.png "a title")
