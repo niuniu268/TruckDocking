@@ -24,6 +24,34 @@ se dockade lastbilars kajplats, lastbilstyp samt vikt
 registrera en ny lastbil vid stationen
 
 ## Result
- - Initially, check the list:
+ -  When users start the program, they can find an initial interface.
 
-![list](https://github.com/niuniu268/TruckDocking/blob/master/images/Screenshot%202022-10-20%20at%201.png "a title")
+![List](https://github.com/niuniu268/TruckDocking/blob/master/images/Screenshot%202022-10-20%20at%201.png "")
+
+- If the users choose 1, they should see an empty list. 
+
+![The empty list](https://github.com/niuniu268/TruckDocking/blob/master/images/Screenshot%202022-10-20%20at%202.png "")
+
+- When the users decide to register a new truck, they need to choose 2. And then they can select which type of truck and the weight of truck. When they finish the selection, the program will print out what they choose.
+
+![List 2](https://github.com/niuniu268/TruckDocking/blob/master/images/Screenshot%202022-10-20%20at%203.png "")
+
+- If the users choose more vans than the limitation, the program will publish a warning message. Meanwhile, the program will return the inituial interface.
+
+![List 3](https://github.com/niuniu268/TruckDocking/blob/master/images/Screenshot%202022-10-20%20at%204.png "")
+
+- If the users choose a small truck which weight is less than 5000 kg, the program will register dock A.
+
+![List 4](https://github.com/niuniu268/TruckDocking/blob/master/images/Screenshot%202022-10-20%20at%205.png "")
+
+- Otherwise, the program will register dock C or dock D.
+
+![List 5](https://github.com/niuniu268/TruckDocking/blob/master/images/Screenshot%202022-10-20%20at%206.png "")
+
+- After registration, the users can find a list when they choose 1 in the initial interface.
+
+![List 6](https://github.com/niuniu268/TruckDocking/blob/master/images/Screenshot%202022-10-20%20at%207.png "")
+
+- When the users choose 3 in the initial interface, the program will automatically close up.
+
+![List 7](https://github.com/niuniu268/TruckDocking/blob/master/images/Screenshot%202022-10-20%20at%208.png "")
