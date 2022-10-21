@@ -1,8 +1,6 @@
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Scanner;
-import java.util.function.Consumer;
 
 public class Main {
     public static void main(String[] args) {
@@ -68,14 +66,26 @@ public class Main {
 
     }
 
-    private static HashSet<Kaj> removeKajVanEl (ArrayList<Vehicle> arrayList, HashSet<Kaj> kajVan){
+    private static HashSet<Kaj> removeElement (ArrayList<Vehicle> arrayList, HashSet<Kaj> kajGroup) {
+        for (Vehicle vehicle : arrayList) {
+            Kaj k = new Kaj(vehicle.getParkering());
+            if (kajGroup.contains(k)) {
+                kajGroup.remove(k);
+            }
+        }
+        return (HashSet<Kaj>) kajGroup;
+
+    }
+
+/*
+    private static HashSet<Kaj> removeKajVanEl(ArrayList<Vehicle> arrayList, HashSet<Kaj> kajVan){
         for (Vehicle vehicle : arrayList) {
             Kaj k = new Kaj(vehicle.getParkering());
             if (kajVan.contains(k)) {
                 kajVan.remove(k);
             }
         }
-        return kajVan;
+        return (HashSet<Kaj>) kajVan;
     }
 
     private static HashSet<Kaj> removeKajSmallTruck1El (ArrayList<Vehicle> arrayList, HashSet<Kaj> kajSmallTruck1){
@@ -118,6 +128,7 @@ public class Main {
         }
         return kajHeavyTruck2;
     }
+*/
 
     protected static void Type(ArrayList<Vehicle> arrayList,
                             HashSet<Kaj> kajVan, HashSet<Kaj> kajSmallTruck1,
@@ -137,11 +148,16 @@ public class Main {
                 }
 
                 inputVan(kajVan,arrayList);
-                removeKajVanEl(arrayList,kajVan);
+                removeElement(arrayList,kajVan);
+                removeElement(arrayList,kajSmallTruck1);
+                removeElement(arrayList,kajSmallTruck2);
+                removeElement(arrayList,kajHeavyTruck1);
+                removeElement(arrayList,kajHeavyTruck2);
+/*                removeKajVanEl(arrayList,kajVan);
                 removeKajSmallTruck1El(arrayList,kajSmallTruck1);
                 removeKajSmallTruck2El(arrayList,kajSmallTruck2);
                 removeKajHeavyTruck1El(arrayList,kajHeavyTruck1);
-                removeKajHeavyTruck2El(arrayList,kajHeavyTruck2);
+                removeKajHeavyTruck2El(arrayList,kajHeavyTruck2);*/
 
             }
             case "2" -> {if(kajSmallTruck2.isEmpty()&&kajSmallTruck1.isEmpty()){
@@ -150,11 +166,16 @@ public class Main {
                 }
 
                 inputSmallTruck(arrayList,kajSmallTruck1,kajSmallTruck2);
-                removeKajVanEl(arrayList,kajVan);
+                removeElement(arrayList,kajVan);
+                removeElement(arrayList,kajSmallTruck1);
+                removeElement(arrayList,kajSmallTruck2);
+                removeElement(arrayList,kajHeavyTruck1);
+                removeElement(arrayList,kajHeavyTruck2);
+/*                removeKajVanEl(arrayList,kajVan);
                 removeKajSmallTruck1El(arrayList,kajSmallTruck1);
                 removeKajSmallTruck2El(arrayList,kajSmallTruck2);
                 removeKajHeavyTruck1El(arrayList,kajHeavyTruck1);
-                removeKajHeavyTruck2El(arrayList,kajHeavyTruck2);
+                removeKajHeavyTruck2El(arrayList,kajHeavyTruck2);*/
 
 
             }
@@ -163,15 +184,28 @@ public class Main {
                 break;
             }
                 inputHeavyTruck(arrayList,kajHeavyTruck1,kajHeavyTruck2);
-                removeKajVanEl(arrayList,kajVan);
+                removeElement(arrayList,kajVan);
+                removeElement(arrayList,kajSmallTruck1);
+                removeElement(arrayList,kajSmallTruck2);
+                removeElement(arrayList,kajHeavyTruck1);
+                removeElement(arrayList,kajHeavyTruck2);
+/*                removeKajVanEl(arrayList,kajVan);
                 removeKajSmallTruck1El(arrayList,kajSmallTruck1);
                 removeKajSmallTruck2El(arrayList,kajSmallTruck2);
                 removeKajHeavyTruck1El(arrayList,kajHeavyTruck1);
-                removeKajHeavyTruck2El(arrayList,kajHeavyTruck2);
+                removeKajHeavyTruck2El(arrayList,kajHeavyTruck2);*/
 
             }
         }
     }
+
+    private static void printArray(ArrayList<Vehicle> arrayList){
+        int index = arrayList.size() - 1;
+        System.out.println(arrayList.get(index).getParkering() + " - " + arrayList.get(index).getName() + arrayList.get(index).getSelfweight() + " kg");
+
+    }
+
+
 
     private static ArrayList<Vehicle> inputVan(HashSet<Kaj> kajVan, ArrayList<Vehicle> arrayList){
 
@@ -182,8 +216,11 @@ public class Main {
         v.setParkering( kajVan.stream().findFirst().get().getName());
 
         arrayList.add(v);
+/*
         int index = arrayList.size() - 1;
         System.out.println(arrayList.get(index).getParkering() + " - " + arrayList.get(index).getName() + arrayList.get(index).getSelfweight() + " kg");
+*/
+        printArray(arrayList);
         return arrayList;
     }
 
@@ -199,16 +236,22 @@ public class Main {
             }else {
                 v.setParkering(kajSmallTruck2.stream().findFirst().get().getName());
                 arrayList.add(v);
+/*
                 int index = arrayList.size() - 1;
                 System.out.println(arrayList.get(index).getParkering() + " - " + arrayList.get(index).getName() + arrayList.get(index).getSelfweight() + " kg");
+*/
+                printArray(arrayList);
 
             }
 
         }else {
             v.setParkering(kajSmallTruck1.stream().findFirst().get().getName());
             arrayList.add(v);
+/*
             int index = arrayList.size() - 1;
             System.out.println(arrayList.get(index).getParkering() + " - " + arrayList.get(index).getName() + " " + arrayList.get(index).getSelfweight() + " kg");
+*/
+            printArray(arrayList);
 
         }
 
@@ -227,14 +270,20 @@ public class Main {
             }else{
                 v.setParkering(kajHeavyTruck2.stream().findFirst().get().getName());
                 arrayList.add(v);
+/*
                 int index = arrayList.size() - 1;
                 System.out.println(arrayList.get(index).getParkering() + " - " + arrayList.get(index).getName() + " " + arrayList.get(index).getSelfweight() + " kg");
+*/
+                printArray(arrayList);
             }
         }else {
             v.setParkering(kajHeavyTruck1.stream().findFirst().get().getName());
             arrayList.add(v);
+/*
             int index = arrayList.size() - 1;
             System.out.println(arrayList.get(index).getParkering() + " - " + arrayList.get(index).getName() + " " + arrayList.get(index).getSelfweight() + " kg");
+*/
+            printArray(arrayList);
         }
 
 
