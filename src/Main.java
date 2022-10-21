@@ -39,11 +39,8 @@ public class Main {
             String choice = sc.next();
 
             switch (choice){
-                case("1") -> {printOutList(arrayList);
-                    }
-                case("2") -> {Type(arrayList,kajVan,kajSmallTruck1,kajSmallTruck2,kajHeavyTruck1,kajHeavyTruck2);
-
-                }
+                case("1") -> printOutList(arrayList);
+                case("2") -> Type(arrayList,kajVan,kajSmallTruck1,kajSmallTruck2,kajHeavyTruck1,kajHeavyTruck2);
                 case("3") -> System.exit(0);
 
             }
@@ -66,14 +63,12 @@ public class Main {
 
     }
 
-    private static HashSet<Kaj> removeElement (ArrayList<Vehicle> arrayList, HashSet<Kaj> kajGroup) {
+    private static void removeElement (ArrayList<Vehicle> arrayList, HashSet<Kaj> kajGroup) {
         for (Vehicle vehicle : arrayList) {
             Kaj k = new Kaj(vehicle.getParkering());
-            if (kajGroup.contains(k)) {
-                kajGroup.remove(k);
-            }
+            kajGroup.remove(k);
         }
-        return (HashSet<Kaj>) kajGroup;
+
 
     }
 
@@ -207,7 +202,7 @@ public class Main {
 
 
 
-    private static ArrayList<Vehicle> inputVan(HashSet<Kaj> kajVan, ArrayList<Vehicle> arrayList){
+    private static void inputVan(HashSet<Kaj> kajVan, ArrayList<Vehicle> arrayList){
 
         Vehicle v = new Vehicle();
         int w = weight();
@@ -221,10 +216,9 @@ public class Main {
         System.out.println(arrayList.get(index).getParkering() + " - " + arrayList.get(index).getName() + arrayList.get(index).getSelfweight() + " kg");
 */
         printArray(arrayList);
-        return arrayList;
     }
 
-    private static ArrayList<Vehicle> inputSmallTruck(ArrayList<Vehicle> arrayList,HashSet<Kaj> kajSmallTruck1, HashSet<Kaj> kajSmallTruck2 ){
+    private static void inputSmallTruck(ArrayList<Vehicle> arrayList, HashSet<Kaj> kajSmallTruck1, HashSet<Kaj> kajSmallTruck2 ){
         Vehicle v = new Vehicle();
         int w = weight();
         v.setName("Lätt lastbil");
@@ -256,9 +250,8 @@ public class Main {
         }
 
 
-        return arrayList;
     }
-    private static ArrayList<Vehicle> inputHeavyTruck(ArrayList<Vehicle> arrayList,HashSet<Kaj> kajHeavyTruck1, HashSet<Kaj> kajHeavyTruck2 ){
+    private static void inputHeavyTruck(ArrayList<Vehicle> arrayList, HashSet<Kaj> kajHeavyTruck1, HashSet<Kaj> kajHeavyTruck2 ){
         Vehicle v = new Vehicle();
         int w = weight();
         v.setName("Tung lastbil");
@@ -287,14 +280,12 @@ public class Main {
         }
 
 
-        return arrayList;
     }
 
     private static int weight(){
         System.out.println("Vikt på");
         Scanner sc = new Scanner(System.in);
         String choice3 = sc.next();
-        int weight = Integer.parseInt(choice3);
-        return weight;
+        return Integer.parseInt(choice3);
     }
 }
