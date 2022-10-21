@@ -53,10 +53,10 @@ public class Main {
             System.out.println("This list is empty");
 
         }
-        arrayList.forEach( vehicle -> {
+        arrayList.forEach( vehicle ->
                 System.out.println(vehicle.getParkering()+" - " + vehicle.getName() +
-                        " [" + vehicle.getSelfweight() + "kg]");
-        }
+                        " [" + vehicle.getSelfweight() + "kg]")
+
         );
 
         System.out.println("-----------------------------");
@@ -196,7 +196,7 @@ public class Main {
 
     private static void printArray(ArrayList<Vehicle> arrayList){
         int index = arrayList.size() - 1;
-        System.out.println(arrayList.get(index).getParkering() + " - " + arrayList.get(index).getName() + arrayList.get(index).getSelfweight() + " kg");
+        System.out.println(arrayList.get(index).getParkering() + " - " + arrayList.get(index).getName() + " " + arrayList.get(index).getSelfweight() + " kg");
 
     }
 
@@ -208,7 +208,7 @@ public class Main {
         int w = weight();
         v.setName("Skåpbil");
         v.setSelfweight(w);
-        v.setParkering( kajVan.stream().findFirst().get().getName());
+        kajVan.stream().findFirst().ifPresent(s -> v.setParkering(s.getName()));
 
         arrayList.add(v);
 /*
@@ -239,7 +239,7 @@ public class Main {
             }
 
         }else {
-            v.setParkering(kajSmallTruck1.stream().findFirst().get().getName());
+            kajSmallTruck1.stream().findFirst().ifPresent(s -> v.setParkering(s.getName()));
             arrayList.add(v);
 /*
             int index = arrayList.size() - 1;
@@ -270,7 +270,8 @@ public class Main {
                 printArray(arrayList);
             }
         }else {
-            v.setParkering(kajHeavyTruck1.stream().findFirst().get().getName());
+            kajHeavyTruck1.stream().findFirst().ifPresent(s -> v.setParkering(s.getName()));
+
             arrayList.add(v);
 /*
             int index = arrayList.size() - 1;
