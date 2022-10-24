@@ -39,8 +39,8 @@ public class Main {
             String choice = sc.next();
 
             switch (choice){
-                case("1") -> printOutList(arrayList);
-                case("2") -> Type(arrayList,kajVan,kajSmallTruck1,kajSmallTruck2,kajHeavyTruck1,kajHeavyTruck2);
+                case("1") -> PrintNotice.printOutList(arrayList);
+                case("2") -> SecondScreen.Type(arrayList,kajVan,kajSmallTruck1,kajSmallTruck2,kajHeavyTruck1,kajHeavyTruck2);
                 case("3") -> System.exit(0);
 
             }
@@ -48,7 +48,7 @@ public class Main {
     }
 
 
-    protected static void printOutList(ArrayList<Vehicle> arrayList){
+/*    protected static void printOutList(ArrayList<Vehicle> arrayList){
         if(arrayList.isEmpty()){
             System.out.println("This list is empty");
 
@@ -61,16 +61,16 @@ public class Main {
 
         System.out.println("-----------------------------");
 
-    }
+    }*/
 
-    private static void removeElement (ArrayList<Vehicle> arrayList, HashSet<Kaj> kajGroup) {
+/*    private static void removeElement (ArrayList<Vehicle> arrayList, HashSet<Kaj> kajGroup) {
         for (Vehicle vehicle : arrayList) {
             Kaj k = new Kaj(vehicle.getParkering());
             kajGroup.remove(k);
         }
 
 
-    }
+    }*/
 
 /*
     private static HashSet<Kaj> removeKajVanEl(ArrayList<Vehicle> arrayList, HashSet<Kaj> kajVan){
@@ -125,7 +125,7 @@ public class Main {
     }
 */
 
-    protected static void Type(ArrayList<Vehicle> arrayList,
+/*    protected static void Type(ArrayList<Vehicle> arrayList,
                             HashSet<Kaj> kajVan, HashSet<Kaj> kajSmallTruck1,
                             HashSet<Kaj> kajSmallTruck2, HashSet<Kaj> kajHeavyTruck1,
                             HashSet<Kaj> kajHeavyTruck2){
@@ -150,11 +150,11 @@ public class Main {
                 removeElement(arrayList,kajSmallTruck2);
                 removeElement(arrayList,kajHeavyTruck1);
                 removeElement(arrayList,kajHeavyTruck2);
-/*                removeKajVanEl(arrayList,kajVan);
+*//*                removeKajVanEl(arrayList,kajVan);
                 removeKajSmallTruck1El(arrayList,kajSmallTruck1);
                 removeKajSmallTruck2El(arrayList,kajSmallTruck2);
                 removeKajHeavyTruck1El(arrayList,kajHeavyTruck1);
-                removeKajHeavyTruck2El(arrayList,kajHeavyTruck2);*/
+                removeKajHeavyTruck2El(arrayList,kajHeavyTruck2);*//*
 
             }
             case "2" -> {if(kajSmallTruck2.isEmpty()&&kajSmallTruck1.isEmpty()){
@@ -170,11 +170,11 @@ public class Main {
                 removeElement(arrayList,kajSmallTruck2);
                 removeElement(arrayList,kajHeavyTruck1);
                 removeElement(arrayList,kajHeavyTruck2);
-/*                removeKajVanEl(arrayList,kajVan);
+*//*                removeKajVanEl(arrayList,kajVan);
                 removeKajSmallTruck1El(arrayList,kajSmallTruck1);
                 removeKajSmallTruck2El(arrayList,kajSmallTruck2);
                 removeKajHeavyTruck1El(arrayList,kajHeavyTruck1);
-                removeKajHeavyTruck2El(arrayList,kajHeavyTruck2);*/
+                removeKajHeavyTruck2El(arrayList,kajHeavyTruck2);*//*
 
 
             }
@@ -190,23 +190,23 @@ public class Main {
                 removeElement(arrayList,kajSmallTruck2);
                 removeElement(arrayList,kajHeavyTruck1);
                 removeElement(arrayList,kajHeavyTruck2);
-/*                removeKajVanEl(arrayList,kajVan);
+*//*                removeKajVanEl(arrayList,kajVan);
                 removeKajSmallTruck1El(arrayList,kajSmallTruck1);
                 removeKajSmallTruck2El(arrayList,kajSmallTruck2);
                 removeKajHeavyTruck1El(arrayList,kajHeavyTruck1);
-                removeKajHeavyTruck2El(arrayList,kajHeavyTruck2);*/
+                removeKajHeavyTruck2El(arrayList,kajHeavyTruck2);*//*
 
             }
         }
-    }
+    }*/
 
-    private static void printArray(ArrayList<Vehicle> arrayList){
+/*    private static void printArray(ArrayList<Vehicle> arrayList){
         int index = arrayList.size() - 1;
         System.out.println(arrayList.get(index).getParkering() + " - " + arrayList.get(index).getName() + " " + arrayList.get(index).getSelfweight() + " kg");
 
-    }
+    }*/
 
-    private static void inputEle(HashSet<? extends Kaj> kajGroup, ArrayList<Vehicle> arrayList, String text, int weight){
+/*    private static void inputEle(HashSet<? extends Kaj> kajGroup, ArrayList<Vehicle> arrayList, String text, int weight){
 
         Vehicle v = new Vehicle();
 
@@ -216,29 +216,29 @@ public class Main {
 
         arrayList.add(v);
 
-    }
+    }*/
 
 
 
-    private static void inputVan(HashSet<Kaj> kajVan, ArrayList<Vehicle> arrayList, String text){
-        int w = weight();
-        inputEle(kajVan,arrayList,text, w);
-/*
+/*    private static void inputVan(HashSet<Kaj> kajVan, ArrayList<Vehicle> arrayList, String text){
+        int w = InputWeight.weight();
+        InputArrayInfo.inputEle(kajVan,arrayList,text, w);
+*//*
         int index = arrayList.size() - 1;
         System.out.println(arrayList.get(index).getParkering() + " - " + arrayList.get(index).getName() + arrayList.get(index).getSelfweight() + " kg");
-*/
-        printArray(arrayList);
-    }
+*//*
+        PrintNotice.printArray(arrayList);
+    }*/
 
-    private static void inputSmallTruck(ArrayList<Vehicle> arrayList, HashSet<Kaj> kajSmallTruck1, HashSet<Kaj> kajSmallTruck2, String text ){
-        int w = weight();
+/*    private static void inputSmallTruck(ArrayList<Vehicle> arrayList, HashSet<Kaj> kajSmallTruck1, HashSet<Kaj> kajSmallTruck2, String text ){
+        int w = InputWeight.weight();
         if(w > 5000){
             if(kajSmallTruck2.isEmpty()){
                 System.out.println("weight should be less than 5000 kg");
 
             }else {
-                inputEle(kajSmallTruck2,arrayList,text,w);
-/*                Vehicle v = new Vehicle();
+                InputArrayInfo.inputEle(kajSmallTruck2,arrayList,text,w);
+*//*                Vehicle v = new Vehicle();
 
                 v.setName("Lätt lastbil");
                 v.setSelfweight(w);
@@ -247,14 +247,14 @@ public class Main {
 
                 int index = arrayList.size() - 1;
                 System.out.println(arrayList.get(index).getParkering() + " - " + arrayList.get(index).getName() + arrayList.get(index).getSelfweight() + " kg");
-*/
-                printArray(arrayList);
+*//*
+                PrintNotice.printArray(arrayList);
 
             }
 
         }else {
-            inputEle(kajSmallTruck1,arrayList,text,w);
-/*            Vehicle v = new Vehicle();
+            InputArrayInfo.inputEle(kajSmallTruck1,arrayList,text,w);
+*//*            Vehicle v = new Vehicle();
             int w = weight();
             v.setName("Lätt lastbil");
             v.setSelfweight(w);
@@ -263,51 +263,51 @@ public class Main {
 
             int index = arrayList.size() - 1;
             System.out.println(arrayList.get(index).getParkering() + " - " + arrayList.get(index).getName() + " " + arrayList.get(index).getSelfweight() + " kg");
-*/
-            printArray(arrayList);
+*//*
+            PrintNotice.printArray(arrayList);
 
         }
 
 
-    }
-    private static void inputHeavyTruck(ArrayList<Vehicle> arrayList, HashSet<Kaj> kajHeavyTruck1, HashSet<Kaj> kajHeavyTruck2, String text ){
+    }*/
+/*    private static void inputHeavyTruck(ArrayList<Vehicle> arrayList, HashSet<Kaj> kajHeavyTruck1, HashSet<Kaj> kajHeavyTruck2, String text ){
 //        Vehicle v = new Vehicle();
-        int w = weight();
-/*        v.setName("Tung lastbil");
-        v.setSelfweight(w);*/
+        int w = InputWeight.weight();
+*//*        v.setName("Tung lastbil");
+        v.setSelfweight(w);*//*
         if(w > 9000){
             if(kajHeavyTruck2.isEmpty()){
                 System.out.println("weight should be less than 9000 kg");
 
             }else{
-                inputEle(kajHeavyTruck2,arrayList,text,w);
-/*               v.setParkering(kajHeavyTruck2.stream().findFirst().get().getName());
+                InputArrayInfo.inputEle(kajHeavyTruck2,arrayList,text,w);
+*//*               v.setParkering(kajHeavyTruck2.stream().findFirst().get().getName());
                  arrayList.add(v);
 
                 int index = arrayList.size() - 1;
                 System.out.println(arrayList.get(index).getParkering() + " - " + arrayList.get(index).getName() + " " + arrayList.get(index).getSelfweight() + " kg");
-*/
-                printArray(arrayList);
+*//*
+                PrintNotice.printArray(arrayList);
             }
         }else {
-            inputEle(kajHeavyTruck1,arrayList,text,w);
-/*            kajHeavyTruck1.stream().findFirst().ifPresent(s -> v.setParkering(s.getName()));
+            InputArrayInfo.inputEle(kajHeavyTruck1,arrayList,text,w);
+*//*            kajHeavyTruck1.stream().findFirst().ifPresent(s -> v.setParkering(s.getName()));
 //
 //            arrayList.add(v);
 
             int index = arrayList.size() - 1;
             System.out.println(arrayList.get(index).getParkering() + " - " + arrayList.get(index).getName() + " " + arrayList.get(index).getSelfweight() + " kg");
-*/
-            printArray(arrayList);
+*//*
+            PrintNotice.printArray(arrayList);
         }
 
 
-    }
-
+    }*/
+/*
     private static int weight(){
         System.out.println("Vikt på");
         Scanner sc = new Scanner(System.in);
         String choice3 = sc.next();
         return Integer.parseInt(choice3);
-    }
+    }*/
 }

@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Objects;
 
 public class Vehicle {
@@ -79,4 +81,5 @@ public class Vehicle {
     public int hashCode() {
         return Objects.hash(name, selfweight, parkering);
     }
+
 }
