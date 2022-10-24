@@ -35,7 +35,7 @@ public class Vehicle {
 
     /**
      * 获取
-     * @return selfweight
+     * @return self weight
      */
     public int getSelfweight() {
         return selfweight;
@@ -43,7 +43,6 @@ public class Vehicle {
 
     /**
      * 设置
-     * @param selfweight
      */
     public void setSelfweight(int selfweight) {
         this.selfweight = selfweight;
@@ -51,7 +50,7 @@ public class Vehicle {
 
     /**
      * 获取
-     * @return parkering
+
      */
     public String getParkering() {
         return parkering;
@@ -59,7 +58,6 @@ public class Vehicle {
 
     /**
      * 设置
-     * @param parkering
      */
     public void setParkering(String parkering) {
         this.parkering = parkering;
